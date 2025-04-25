@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:http/http.dart' as http;
 import 'package:gardmei_backend_demo/data/api/api_client.dart';
 
 class DeviceApi {
@@ -13,7 +12,7 @@ class DeviceApi {
     final data = {"deviceName": deviceName, "model": model, "imeiNum": imeiNum};
 
     try {
-      final response = await _apiClient.post('/add', data: data);
+      final response = await _apiClient.post('api/devices/add', data: data);
 
       if (response.statusCode == 200 || response.statusCode == 201) {
         return jsonDecode(response.body);
@@ -27,7 +26,7 @@ class DeviceApi {
 
   Future<List<String>> getAllDeviceNames() async {
     try {
-      final response = await _apiClient.get('/getAllDeviceName');
+      final response = await _apiClient.get('api/devices/getAllDeviceName');
 
       if (response.statusCode == 200) {
         final List<dynamic> jsonList = jsonDecode(response.body);

@@ -5,7 +5,7 @@ class ApiClient {
   static final ApiClient _instance = ApiClient._internal();
   factory ApiClient() => _instance;
 
-  final String baseUrl = 'http://localhost:5000/api/devices';
+  final String baseUrl = 'http://localhost:5000/';
   final Map<String, String> headers = {'Content-Type': 'application/json'};
 
   ApiClient._internal();
